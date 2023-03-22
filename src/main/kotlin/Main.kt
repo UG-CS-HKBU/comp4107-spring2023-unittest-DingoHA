@@ -102,12 +102,17 @@ abstract class Hero(var role: Role) : Role by role {
 
     open fun beingAttacked() {
         println("$name got attached")
-        if (!dodgeAttack()) {
-            hp--
-            println("$name is unable to dodge attack, current hp is $hp.")
-        } else {
-            println("$name dodged attack, current hp is $hp.")
+        if(hp <0){
+            if (!dodgeAttack()) {
+                hp--
+                println("$name is unable to dodge attack, current hp is $hp.")
+            } else {
+                println("$name dodged attack, current hp is $hp.")
+            }
+        }else{
+            println("$name is dead, current hp is $hp.")
         }
+
     }
 }
 
